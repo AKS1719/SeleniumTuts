@@ -22,7 +22,7 @@ public class CssSelectors {
 
     public void setItemId(String itemid) {
         // Locate the WebElement corresponding to 'Item Id' using Id Css Selector.
-        driver.findElement(By.cssSelector("#itemid")).sendKeys(itemid);
+        driver.findElement(By.cssSelector("input#itemid")).sendKeys(itemid);
     }
 
     public void setItemName(String itemname) {
@@ -32,12 +32,12 @@ public class CssSelectors {
 
     public void setItemDescription(String description) {
         // Locate the WebElement corresponding to 'Item Description' using Attribute Css Selector.
-        driver.findElement(By.cssSelector("[placeholder='ITEM DESCRIPTION']")).sendKeys(description);
+        driver.findElement(By.cssSelector("textarea[name='itemdesc']")).sendKeys(description);
     }
 
     public void setItemCategory(String category) {
         // Locate the WebElement corresponding to 'Item Category' using Tag, Class and Attribute Css selector.
-        WebElement drop = driver.findElement(By.cssSelector("select.menu-product[name='itemtype']"));
+        WebElement drop = driver.findElement(By.cssSelector("select[class='menu-product'][name='itemtype']"));
         Select s = new Select(drop);
         s.selectByVisibleText(category);
     }

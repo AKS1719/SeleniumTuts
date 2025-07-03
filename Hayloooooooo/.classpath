@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="E:/JARS/slf4j-api-2.0.13.jar"/>
+	<classpathentry kind="lib" path="E:/JARS/slf4j-simple-2.0.13.jar"/>
 	<classpathentry kind="lib" path="C:/selenium-java-4.33.0/auto-service-annotations-1.1.1.jar"/>
 	<classpathentry kind="lib" path="C:/selenium-java-4.33.0/auto-service-annotations-1.1.1-sources.jar"/>
 	<classpathentry kind="lib" path="C:/selenium-java-4.33.0/byte-buddy-1.17.5.jar"/>
@@ -77,6 +79,5 @@
 	<classpathentry kind="lib" path="C:/selenium-java-4.33.0/selenium-safari-driver-4.33.0-sources.jar"/>
 	<classpathentry kind="lib" path="C:/selenium-java-4.33.0/selenium-support-4.33.0.jar"/>
 	<classpathentry kind="lib" path="C:/selenium-java-4.33.0/selenium-support-4.33.0-sources.jar"/>
-	<classpathentry kind="lib" path="E:/JARS/testng-7.11.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

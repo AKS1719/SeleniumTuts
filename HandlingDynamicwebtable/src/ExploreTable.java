@@ -33,21 +33,18 @@ public class ExploreTable {      // DO NOT CHANGE THE CLASS NAME
 	{
 		// Locate the webElement 'Sorting table data' , click on it and return the element
 
-		driver.findElement(By.id("sorttable")).click();
-		return driver.findElement(By.id("sorttable"));
+		WebElement btn = driver.findElement(By.id("sorttable"));
+		btn.click();
+		return btn;
 
 	}
 	public List<WebElement> fetchTableData() {  
 	    
 		// Finds all the rows of the table with id 'sortingTable' and returns them as a list of WebElements
         // Prints the text of each row
-        WebElement table = driver.findElement(By.id("sortingTable"));
-        List<WebElement> l = table.findElements(By.tagName("tr"));
-        for(int i = 1 ; i < l.size();i++) {
-        	List<WebElement> td = l.get(i).findElements(By.tagName("td"));
-        	for(int j = 0 ;  j < td.size();j++) {
-        		System.out.println(td.get(j).getText());
-        	}
+        List<WebElement> l = driver.findElements(By.cssSelector("#sortingTable tbody tr"));
+        for(WebElement row : l) {
+        	System.out.println(row.getText());
         }
         return l;
 	}
@@ -55,9 +52,14 @@ public class ExploreTable {      // DO NOT CHANGE THE CLASS NAME
  
     // Locate the table and finds all the table header cells (th elements) within the thead element of the table
     // Returns them as a list of WebElements
-		List<WebElement> th = driver.findElements(By.tagName("th"));
+		List<WebElement> th = driver.findElements(By.cssSelector("#sortingTable thead th"));
+		for(WebElement h: th) {
+			System.out.println("Header : "+ h.getText());
+		}
     
         return th;
+        
+        
 	}
  
 	public List<WebElement> fetchSpecificRow() {
@@ -66,13 +68,12 @@ public class ExploreTable {      // DO NOT CHANGE THE CLASS NAME
     // Finds all the cells (td elements) within the specified row
     // Prints the values of the cells in the specified row
     // Returns all the rows of the table as a list of WebElements
-		List<WebElement> tr = fetchTableData();
-		List<WebElement> td = tr.get(1).findElements(By.tagName("td"));
-		for(int i = 0 ;i < td.size();i++) {
-			System.out.println(td.get(i).getText());
+		WebElement tr = driver.findElements(By.cssSelector("#sortingTable tbody tr")).get(1);
+		List<WebElement> cells = tr.findElements(By.tagName("td"));
+		for(WebElement td: cells) {
+			System.out.println(td.getText());
 		}
-        return td;
-		
+		return cells;
 	}	
  
 	public WebElement fetchSpecificColumn() {
@@ -83,12 +84,10 @@ public class ExploreTable {      // DO NOT CHANGE THE CLASS NAME
     // Retrieves the WebElement corresponding to the specified cell
     // Prints the value of the cell
     // Returns the WebElement representing the specific cell
-		List<WebElement> tr = fetchTableData();
-		List<WebElement> td = tr.get(2).findElements(By.tagName("td"));
+		WebElement trcol = driver.findElements(By.cssSelector("#sortingTable tbody tr")).get(2).findElements(By.tagName("td")).get(0);
 		
-		System.out.println(td.get(0).getText());
-		
-		return td.get(0);
+		System.out.println(trcol.getText());
+		return trcol;
 	}	
 	public static void main(String[] args) {    // DO NOT CHANGe THE METHOD SIGNATURE
  

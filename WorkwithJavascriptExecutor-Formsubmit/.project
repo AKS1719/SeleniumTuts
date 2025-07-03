@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>TestNGAssertions</name>
-	<comment>TestNG Assertions</comment>
+	<name>WorkwithJavascriptExecutor-Formsubmit</name>
+	<comment>Work with Javascript Executor - Form submit</comment>
 	<projects>
 	</projects>
 	<buildSpec>

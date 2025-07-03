@@ -34,12 +34,13 @@ public class DatePicker extends DriverSetup {
 		WebElement we = driver.findElement(By.id("dob"));
 		Actions action = new Actions(driver);
 		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		we.sendKeys(date);
-		action.moveToElement(we).click().perform();
-		
-		System.out.println(js.executeScript("return document.getElementById('dob').value"));
-		
+		action
+		.moveToElement(we)
+		.click()
+		.sendKeys(date)
+		.perform();
+		Thread.sleep(800);
+		System.out.println(we.getAttribute("value"));
 
 	}
 

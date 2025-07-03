@@ -1,4 +1,3 @@
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -7,47 +6,46 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TimeOut {
-	public static WebDriver driver;
-	String baseUrl = "https://webapps.tekstac.com/SeleniumApp1/SmartUniversity/add_stud.html";
-	static String text;
+    public static WebDriver driver;
+    String baseUrl = "https://webapps.tekstac.com/SeleniumApp1/SmartUniversity/add_stud.html";
 
-	public TimeOut(WebDriver driver) {
-		this.driver = driver;
-	}
+    public TimeOut(WebDriver driver) {
+        this.driver = driver;
+    }
 
-	public TimeOut() {
-	}
+    public TimeOut() {
+    }
 
-	public WebDriver setupDriver() { // Do not change the method signature
+    public WebDriver setupDriver() {
+        // Get driver from DriverSetup and open the baseUrl
+        driver = DriverSetup.getDriver();
+        driver.get(baseUrl);
+        return driver;
+    }
 
-		// Invoke the getDriver() method from the DriverSetup File
-		// Store it in static variable 'driver' and return it
-        return null;
-	}
-	
-	public String getPageTitle() {
+    public String getPageTitle() {
+        // Return current page title
+        return driver.getTitle();
+    }
 
-		// get the page title
-        //return pageTitle;
-		return null;
-	}
-	
-	public Exception clickPhotoUploadBtn() throws TimeoutException {
-		     // Initialize WebDriverWait
-		     // Click on the element with Locate Corresponding Web Element
-		     // Wait until the element is visible
-		     // Retrieve the text from the element
-		    // Return null to indicate success
-		    // Return the TimeoutException for further handling
-		    return null;
+    public Exception clickPhotoUploadBtn() throws TimeoutException {
+        try {
+            // Click on button with id "file1"
+            WebElement uploadBtn = driver.findElement(By.id("file1"));
+            uploadBtn.click();
 
-	}
-	
-	
-	public static void main(String[] args) { // Do not change the method signature
-		TimeOut reg = new TimeOut();
-		reg.setupDriver();
-		reg.getPageTitle();
-		reg.clickPhotoUploadBtn();
-	}
+//            WebDriverWait wait = new WebDriverWait(driver, 1);
+//            WebElement filename = wait.until(
+//                ExpectedConditions.visibilityOfElementLocated(By.id("filename"))
+//            );
+
+//            System.out.println(filename.getText());
+
+            return null;
+        } catch (TimeoutException e) {
+            // Print stack trace and return the exception
+            e.printStackTrace();
+            return e;
+        }
+    }
 }
